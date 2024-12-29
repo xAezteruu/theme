@@ -14,8 +14,6 @@ install_dependencies() {
     wget -O ~/.bashrc https://raw.githubusercontent.com/xAezteruu/rdp/refs/heads/main/.bashrc.example
     source ~/.bashrc
     clear
-    curl https://sshx.io/get | sh
-    su $USER
 }
 
 while true; do
@@ -24,13 +22,15 @@ while true; do
         read -p "Masukkan Hostname yang kamu inginkan: " newhostname
         hostname $newhostname
         sudo sed -i "$(($(sed -n '$=' /etc/hosts)-1))s/\S\+$/$newhostname/" /etc/hosts
-        install_dependencies
         break
     elif [[ $pilihan =~ ^[Nn]$ ]]; then
-        install_dependencies
         break
     else
         echo "Pilihan tidak valid. Harap pilih (Y)es atau (N)o."
         sleep 2
     fi
 done
+
+install_dependencies
+curl https://sshx.io/get | sh
+su $USER
