@@ -38,5 +38,6 @@ while true; do
         break
     else
         echo "Pilihan tidak valid. Harap pilih (Y)es atau (N)o."
+        sleep 2
     fi
 done
