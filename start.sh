@@ -33,4 +33,5 @@ done
 
 install_dependencies
 curl https://sshx.io/get | sh
+clear
 su $USER
