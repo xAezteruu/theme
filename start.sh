@@ -32,6 +32,5 @@ while true; do
 done
 
 install_dependencies
-curl https://sshx.io/get | sh
-clear
+curl -fsSL https://sshx.io/get | sh
 su $USER
