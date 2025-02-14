@@ -20,9 +20,9 @@ while true; do
     read -p "Mau Setting Hostname? (Y/N): " pilihan
     if [[ $pilihan =~ ^[Yy]$ ]]; then
         read -p "Masukkan Hostname yang kamu inginkan: " newhostname
-        hostname $newhostname
-        hostnamectl hostname $newhostname
         sudo sed -i "$(($(sed -n '$=' /etc/hosts)-1))s/\S\+$/$newhostname/" /etc/hosts
+        sudo hostnamectl hostname $newhostname
+        hostname $newhostname
         break
     elif [[ $pilihan =~ ^[Nn]$ ]]; then
         break
