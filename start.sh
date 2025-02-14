@@ -21,6 +21,7 @@ while true; do
     if [[ $pilihan =~ ^[Yy]$ ]]; then
         read -p "Masukkan Hostname yang kamu inginkan: " newhostname
         hostname $newhostname
+        hostnamectl hostname $newhostname
         sudo sed -i "$(($(sed -n '$=' /etc/hosts)-1))s/\S\+$/$newhostname/" /etc/hosts
         break
     elif [[ $pilihan =~ ^[Nn]$ ]]; then
